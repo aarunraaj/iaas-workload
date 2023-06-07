@@ -7,3 +7,11 @@
     
 Include disk encryption part of the deployment.
 Azure DNS zone (public zone).
+
+## Steps
+- Clone the repo and run [main.bicep](./main.bicep)
+```
+az group create -n sampleRG -l eastus
+az deployment group create -g sampleRG --template-file .\bicep\main.bicep
+```
+- Supply virtual machine and SQLdb password secure string.
