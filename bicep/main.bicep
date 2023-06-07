@@ -7,7 +7,9 @@ var webSubnet = modvnet.outputs.webSubnet
 var apiSubnet = modvnet.outputs.apiSubnet
 var dbSubnet = modvnet.outputs.dbSubnet
 var dbLB = modilb.outputs.dblb
+var dblbResourceId = modilb.outputs.dblbResourceId
 var apiLB = modilb.outputs.apilb
+var apilbResourceId = modilb.outputs.apilbResourceId
 var webLB = modilb.outputs.weblb
 
 module modapivm './module/apivm.bicep' = {
@@ -19,6 +21,7 @@ module modapivm './module/apivm.bicep' = {
     subnetName: apiSubnet
     VnetId: Vnet
     apiLB: apiLB
+    dblbResourceId: dblbResourceId
   }
 }
 
@@ -31,6 +34,7 @@ module modwebvm './module/webvm.bicep' = {
     VnetId: Vnet
     subnetName: webSubnet
     webLB: webLB
+    apilbResourceId:apilbResourceId
   }
 }
 

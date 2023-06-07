@@ -2,6 +2,7 @@ param location string
 param adminUsername string
 param VnetId string
 param subnetName string
+param apilbResourceId string
 param vmSize string = 'Standard_B1s'
 param publisher string = 'Canonical'
 param offer string = '0001-com-ubuntu-server-jammy'
@@ -62,6 +63,9 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-03-01' = [for (v
   name: vm.vmName
   location: location
   zones:[ vm.avZone ]
+  tags:{
+    'hidden-link:WorkloadModel.Relationship.CodeConnectsTo#usesManagedIdentity=false,usesTransportEncryption=false,usesPrivateEndpoint=false,criticality=Runtime': apilbResourceId
+  }
   properties: {
     hardwareProfile: {
       vmSize: vmSize

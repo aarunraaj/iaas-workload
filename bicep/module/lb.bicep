@@ -177,5 +177,7 @@ resource lbPip 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
   }
 }
 output dblb string = dbilb.name
+output dblbResourceId string = dbilb.id
 output apilb string = apilb.name
+output apilbResourceId string = apilb.id
 output weblb string = webLB.name
