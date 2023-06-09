@@ -9,16 +9,7 @@ param offer string = '0001-com-ubuntu-server-jammy'
 param sku string = '22_04-lts-gen2'
 param version string = 'latest'
 param apiLB string
-param apivm array = [
-  {
-    vmName: 'apivm01'
-    avZone: 1
-  }
-  {
-    vmName: 'apivm02'
-    avZone: 2
-  }
-]
+param apivm array
 @secure()
 param adminPassword string
 
@@ -53,6 +44,9 @@ resource networkInterface 'Microsoft.Network/networkInterfaces@2021-08-01' = [fo
             }
           ]
           privateIPAllocationMethod: 'Dynamic'
+          publicIPAddress:{
+            id:pip.id
+          }
         }
       }
     ]

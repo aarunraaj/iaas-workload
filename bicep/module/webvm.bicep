@@ -9,16 +9,7 @@ param offer string = '0001-com-ubuntu-server-jammy'
 param sku string = '22_04-lts-gen2'
 param version string = 'latest'
 param webLB string
-param webvm array = [
-  {
-    vmName: 'webvm01'
-    avZone: 1
-  }
-  {
-    vmName: 'webvm02'
-    avZone: 2
-  }
-]
+param webvm array 
 @secure()
 param adminPassword string
 

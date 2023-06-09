@@ -22,6 +22,12 @@ module modapivm './module/apivm.bicep' = {
     VnetId: Vnet
     apiLB: apiLB
     dblbResourceId: dblbResourceId
+    apivm: [
+        {
+          vmName: 'apivm01'
+          avZone: 1
+        }
+      ]
   }
 }
 
@@ -35,6 +41,16 @@ module modwebvm './module/webvm.bicep' = {
     subnetName: webSubnet
     webLB: webLB
     apilbResourceId:apilbResourceId
+    webvm:[
+      {
+        vmName: 'webvm01'
+        avZone: 1
+      }
+      {
+        vmName: 'webvm02'
+        avZone: 1
+      }
+    ]
   }
 }
 
@@ -59,7 +75,7 @@ module modsqlvm './module/sqlvm.bicep' = {
         ipaddress: '192.168.0.45'
       }, {
         vmName: 'sqlvm02'
-        avZone: 2
+        avZone: 1
         ipaddress: '192.168.0.46'
       }
     ]

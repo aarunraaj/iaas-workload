@@ -1,9 +1,10 @@
-# Scenario #1 deployment
+# Scenario #2 deployment
 - Includes web tier / App tier / DB tier 
 - All these are zonal deployment, but the servers placed in same availability zone.
 - All three tiers will have Azure Load Balancer attached.
-    - Web tier has Public Load balancer
-    - App and DB tier is attached with internal load balancer
+    - Web tier has Public Load balancer.
+    - App and DB tier is attached with internal load balancer.
+    - App tier will have single virtual machine and attached with public Ip address.
     
 Include disk encryption part of the deployment.
 Azure DNS zone (public zone).
